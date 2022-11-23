@@ -1,0 +1,21 @@
+class Solution {
+    
+    int [] ways = new int[46];
+    public int climbStairs(int n) {
+        if(n==0){
+            return 1;
+        }
+        if(n<0){
+            return 0;
+        }
+        
+        int val = ways[n];
+        if(val!=0){
+            return val;
+        }
+        
+        val = climbStairs(n-1) + climbStairs(n-2);
+        ways[n] = val;
+        return val;
+    }
+}
